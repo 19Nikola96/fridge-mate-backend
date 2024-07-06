@@ -1,0 +1,45 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+  ],
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.test.ts, ${capture}.spec.ts, ${capture}.test.ts.snap, ${capture}.e2e.spec.ts, ${capture}.int.spec.ts, ${capture}.mock.ts",
+    "*.tsx": "${capture}.test.tsx, ${capture}.spec.tsx, ${capture}.test.tsx.snap ${capture}.mock.ts",
+    ".eslintrc.js": "*.eslintrc.js",
+    "app.config.ts": "*.config.js"
+  },
+  "files.associations": {
+    ".env*": "dotenv",
+    "Appfile": "ruby",
+    "Fastfile*": "ruby",
+    "Matchfile": "ruby",
+    "package-lock.lock": "text",
+    "package.json": "jsonc"
+  },
+  "files.eol": "\n",
+  "files.readonlyInclude": {
+    "src/translations/**/*": true
+  },
+  "prettier.requireConfig": true,
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "spellright.language": ["en"],
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.colorCustomizations": {
+    "folderPathColor.custom1": "#FF4488",
+    "folderPathColor.custom2": "#88ff44",
+    "folderPathColor.custom3": "#4488FF",
+    "activityBar.background": "#4F0562",
+    "titleBar.activeBackground": "#6E078A",
+    "titleBar.activeForeground": "#FEFBFF"
+  },
+}
