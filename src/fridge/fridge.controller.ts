@@ -20,8 +20,8 @@ export class FridgeController {
   }
 
   @Get(":id")
-  findOne(@Param("id") id: number) {
-    return this.fridgeService.findOne("" + id);
+  getFridgeInfo(@Param("id") id: number) {
+    return this.fridgeService.getFridgeInfo(id);
   }
 
   @Post()
@@ -35,7 +35,7 @@ export class FridgeController {
   }
 
   @Delete(":id")
-  delete(@Param("id") id: string) {
+  delete(@Param("id") id: number) {
     return this.fridgeService.remove(id);
   }
 }

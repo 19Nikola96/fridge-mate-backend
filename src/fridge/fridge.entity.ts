@@ -1,7 +1,9 @@
+import { Product } from "src/product/product.entity";
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
@@ -13,6 +15,9 @@ export class Fridge {
 
   @Column()
   name: string;
+
+  @OneToMany(() => Product, (product) => product.fridge)
+  products: Product[];
 
   @CreateDateColumn()
   createdAt: Date;

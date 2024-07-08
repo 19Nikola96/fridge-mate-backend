@@ -11,11 +11,13 @@ export class FridgeService {
     @InjectRepository(Fridge)
     private readonly fridgeRepository: Repository<Fridge>,
   ) {}
+
   findAll() {
     // const { limit, offset } = paginationQuery;
     return this.fridgeRepository.find();
   }
-  async findOne(id: string) {
+
+  async findOne(id: number) {
     const fridge = await this.fridgeRepository.findOne({
       where: { id: +id },
     });
@@ -24,10 +26,26 @@ export class FridgeService {
     }
     return fridge;
   }
+
+  async getFridgeInfo(id: number) {
+    const fridge = await this.fridgeRepository.findOne({
+      where: { id: +id },
+      relations: {
+        products: true,
+      },
+    });
+    if (!fridge) {
+      throw new NotFoundException(`Fridge ${id} not found`);
+    }
+
+    return fridge;
+  }
+
   async create(createFridgeDto: CreateFridgeDto) {
     const fridge = this.fridgeRepository.create(createFridgeDto);
     return this.fridgeRepository.save(fridge);
   }
+
   async update(id: string, updateFridgeDto: UpdateFridgeDto) {
     const fridge = await this.fridgeRepository.preload({
       id: +id,
@@ -38,7 +56,8 @@ export class FridgeService {
     }
     return this.fridgeRepository.save(fridge);
   }
-  async remove(id: string) {
+
+  async remove(id: number) {
     const fridge = await this.findOne(id);
     return this.fridgeRepository.remove(fridge);
   }
