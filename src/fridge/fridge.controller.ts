@@ -7,13 +7,16 @@ import {
   Patch,
   Post,
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { CreateFridgeDto } from "src/fridge/dto/create-fridge.dto/create-fridge.dto";
 import { UpdateFridgeDto } from "src/fridge/dto/update-fridge.dto/update-fridge.dto";
 import { FridgeService } from "src/fridge/fridge.service";
 
+@ApiTags("fridge")
 @Controller("fridge")
 export class FridgeController {
   constructor(private readonly fridgeService: FridgeService) {}
+
   @Get()
   findAll() {
     return this.fridgeService.findAll();
